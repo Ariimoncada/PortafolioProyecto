@@ -1,0 +1,194 @@
+﻿@color_1: #ffffff;
+@color_2: white;
+@color_3: #A1C6EA;
+@color_4: #333;
+@color_5: #07c510;
+@color_6: #4f4e4f;
+@font_family_1: 'Arial', sans-serif;
+@background_color_1: #000000; // Toda la página negra
+@background_color_2: #000000; // Fondos negros
+@background_color_3: #000000;
+@background_color_4: #000000;
+@background_color_5: #23c200;
+@background_color_6: #000000; // Cambié esto para que todas las secciones sean negras
+
+@keyframes slideInVertical {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: @font_family_1;
+    background-color: @background_color_1; // Negro
+    color: @color_1;
+    line-height: 1.6;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: @background_color_1;
+    border-top: 3px solid @color_5;
+    .banner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin-top: 1.5cm;
+        video {
+            position: absolute;
+            top: 51%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.biografia {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    background-color: @background_color_1; // Fondo negro
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: slideInLeft 1s ease-out;
+    margin-top: 110px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Ajustando la foto de perfil a 2.5 cm */
+.foto-perfil {
+    margin-right: 20px;
+    img {
+        border-radius: 50%;
+        width: 2.5cm; 
+        height: 2.5cm; 
+        object-fit: cover;
+    }
+}
+
+.proyectos {
+    padding: 2rem;
+    text-align: center;
+    background-color: @background_color_1; // Fondo negro
+    animation: fadeIn 3s ease-out;
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: @color_5;
+    }
+}
+
+.galeria {
+    display: flex;
+    justify-content: center;
+    gap: 1cm;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.proyecto {
+    background-color: @background_color_1; // Fondo negro
+    border: 2px solid @color_5;
+    padding: 1rem;
+    width: 23%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+    h3 {
+        font-size: 1.2rem;
+        color: @color_2;
+    }
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.contacto {
+    background-color: @background_color_1; // Fondo negro
+    color: @color_2;
+    padding: 2rem;
+    text-align: center;
+    animation: slideInRight 1.5s ease-out;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, textarea {
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid @color_5;
+    border-radius: 8px;
+    background-color: #111;
+    color: @color_2;
+}
+
+button {
+    padding: 0.8rem 2rem;
+    background-color: @background_color_5;
+    color: @color_2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: @background_color_4;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: @background_color_1; // Negro
+    color: @color_2;
+}
