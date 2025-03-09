@@ -1,4 +1,3 @@
-/* Reset de estilos */
 * {
     margin: 0;
     padding: 0;
@@ -7,31 +6,28 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #000; /* Fondo negro */
+    background-color: #000; 
     color: #ffffff;
     line-height: 1.6;
 }
 
-/* HEADER */
+
 header {
     position: relative;
     width: 100%;
     height: 500px;
-    background-color: #000; /* Fondo negro */
-    border-top: 5px solid #07c510; /* Borde superior verde */
+    background-color: #000; 
+    border-top: 5px solid #07c510; 
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-bottom: 0; /* Asegura que no haya espacio adicional debajo del header */
-    padding-bottom: 0;
 }
 
 .banner video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
 
 /* BIOGRAFÍA */
@@ -40,10 +36,10 @@ header {
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    background-color: #000; /* Fondo negro */
+    background-color: #000; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     animation: slideInLeft 1s ease-out;
-    margin-top: -20px; /* Margen negativo para acercar al video */
+    margin-top: 0; 
     position: relative;
     z-index: 2;
 }
@@ -54,13 +50,13 @@ header {
 
 .foto-perfil img {
     border-radius: 50%;
-    width: 2.5cm; /* Tamaño en cm */
-    height: 2.5cm; /* Tamaño en cm */
+    width: 2.5cm; 
+    height: 2.5cm; 
     object-fit: cover;
 }
 
 .texto {
-    max-width: 500px;
+    max-width: 500px; 
 }
 
 .texto h2 {
@@ -73,18 +69,18 @@ header {
     color: #ffffff;
 }
 
-/* PROYECTOS */
+
 .proyectos {
     padding: 2rem;
     text-align: center;
-    background-color: #000; /* Fondo negro */
+    background-color: #000; 
     animation: fadeIn 3s ease-out;
 }
 
 .proyectos h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: #07c510; /* Verde */
+    color: #07c510; 
 }
 
 .galeria {
@@ -96,7 +92,7 @@ header {
 }
 
 .proyecto {
-    background-color: #111; /* Fondo negro más claro */
+    background-color: #111; 
     border: 2px solid #07c510;
     padding: 1rem;
     width: 23%;
@@ -127,7 +123,7 @@ header {
     transform: scale(1.05);
 }
 
-/* FORMULARIO DE CONTACTO */
+
 .contacto {
     background-color: #000; 
     color: white;
@@ -167,15 +163,14 @@ button:hover {
     background-color: #05a00f;
 }
 
-/* FOOTER */
+
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: #000; /* Negro */
+    background-color: #000;
     color: white;
 }
 
-/* ANIMACIONES */
 @keyframes fadeIn {
     from {
         opacity: 0;
