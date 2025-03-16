@@ -7,7 +7,7 @@ on:
 
 permissions:
   contents: read
-  pages: write  
+  pages: write 
   id-token: write 
 
 jobs:
@@ -15,18 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout del código del portafolio
-        uses: actions/checkout@v4 
+        uses: actions/checkout@v4
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'  
+          node-version: '18'
 
       - name: Instalar dependencias del portafolio
-        run: npm install  
+        run: npm install
 
       - name: Construir el portafolio con Vite
-        run: npm run build  
+        run: npm run build
 
       - name: Subir archivos generados del portafolio
         uses: actions/upload-pages-artifact@v2  
@@ -38,4 +38,4 @@ jobs:
     needs: build  
     steps:
       - name: Desplegar el portafolio en GitHub Pages
-        uses: actions/deploy-pages@v2 
+        uses: actions/deploy-pages@v2  
