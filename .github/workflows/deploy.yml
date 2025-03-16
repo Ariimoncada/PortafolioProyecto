@@ -1,41 +1,46 @@
-name: Deploy Portafolio to GitHub Pages
+name: Despliegue a Github Pages del MPA con Vite
 
 on:
   push:
-    branches: 
-      - main  
-
+    branches: ["main"]
+  workflow_dispatch:
 permissions:
   contents: read
-  pages: write 
-  id-token: write 
+  pages: write
+  id-token: write
+env:
+  DEPLOY_BASE_URL: ${{vars.DEPLOY_BASE_URL}}
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.github_pages.outputs.url }}
+
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout del código del portafolio
+      - name: Clonar Repositorio
         uses: actions/checkout@v4
-
-      - name: Configurar Node.js
+      - name: Configurar NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-
-      - name: Instalar dependencias del portafolio
+          node-version: '20'
+          cache: 'npm'
+      - name: Instalar Dependencias
         run: npm install
-
-      - name: Construir el portafolio con Vite
+      - name: Verificar Variables de Ambiente
+        run : echo "DEPLOY_BASE_URL $DEPLOY_BASE_URL"
+      - name: Compilar Proyecto
         run: npm run build
-
-      - name: Subir archivos generados del portafolio
-        uses: actions/upload-pages-artifact@v2  
+      - name: Configurar Github Pages
+        uses: actions/configure-pages@v5
+      - name: Subir Compilado a Github Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build  
-    steps:
-      - name: Desplegar el portafolio en GitHub Pages
-        uses: actions/deploy-pages@v2  
+          path: './dist'
+      - name: Publicar Página en Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
